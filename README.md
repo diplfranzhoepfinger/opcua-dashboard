@@ -4,6 +4,8 @@ Ein browser-basiertes **OPC UA Dashboard**, das in Echtzeit Daten von einem OPC 
 
 ![Demo](Aufzeichnung%202026-04-23%20200420.gif)
 
+> **🎥 Hinter den Kulissen:** Die komplette Entwicklungssitzung dieses Projekts wurde mit [OpenCode](https://opncd.ai/) aufgezeichnet und kann hier angesehen werden: [https://opncd.ai/share/0sO9jaeq](https://opncd.ai/share/0sO9jaeq)
+
 ## Features
 
 - **Temperatur-Gauge** – SVG-Halbkreis mit dynamischem Farbverlauf (20–80 °C)
@@ -131,4 +133,9 @@ Um eine saubere Entwicklungsgeschichte zu gewährleisten, werden automatisch Com
 
 ## Lizenz
 
-MIT
+Dieses Projekt verwendet ein **Dual-Licensing**:
+
+- **Human Contributions** (Planung, Architektur, Konfiguration, manuelle Edits) stehen unter der **MIT License**, Copyright (c) 2026 Franz Höpfinger.
+- **AI-Generated Code** (vollständig durch Kimi K2.6 generiert) ist **Public Domain (CC0 1.0 Universal)**.
+
+Details siehe [LICENSE](LICENSE).
