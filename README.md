@@ -4,7 +4,6 @@ Ein browser-basiertes **OPC UA Dashboard**, das in Echtzeit Daten von einem OPC 
 
 ![Demo](Aufzeichnung%202026-04-23%20200420.gif)
 
-> **🎥 Hinter den Kulissen:** Die komplette Entwicklungssitzung dieses Projekts wurde mit [OpenCode](https://opncd.ai/) aufgezeichnet und kann hier angesehen werden: [https://opncd.ai/share/0sO9jaeq](https://opncd.ai/share/0sO9jaeq)
 
 ## Features
 
