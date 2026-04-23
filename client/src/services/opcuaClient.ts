@@ -13,8 +13,15 @@ export const temperature = ref(0)
 export const position = ref(0)
 export const trafficLight = ref(0)
 export const connectionStatus = ref('Disconnected')
+export const endpointUrl = ref(`ws://${window.location.hostname || 'localhost'}:4444`)
+
+let currentClient: any = null
 
 export async function connectOpcua() {
+  if (currentClient) {
+    await currentClient.disconnectP()
+  }
+
   const client = new OPCUAClient({
     securityMode: MessageSecurityMode.None,
     securityPolicy: SecurityPolicy.None,
@@ -25,10 +32,12 @@ export async function connectOpcua() {
       maxDelay: 5000,
     },
   })
+  currentClient = client
 
   try {
     connectionStatus.value = 'Connecting...'
-    await client.connectP('ws://localhost:4444')
+    console.log(`[OPC UA] Connecting to ${endpointUrl.value}...`)
+    await client.connectP(endpointUrl.value)
     connectionStatus.value = 'Connected'
 
     const session = await client.createSessionP({})

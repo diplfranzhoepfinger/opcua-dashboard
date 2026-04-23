@@ -2,6 +2,10 @@
   <div class="app">
     <header>
       <h1>OPC UA Dashboard</h1>
+      <div class="controls">
+        <input v-model="endpointUrl" placeholder="ws://localhost:4444" @keyup.enter="connectOpcua" />
+        <button @click="connectOpcua">Connect</button>
+      </div>
       <div class="status" :class="statusClass">{{ connectionStatus }}</div>
     </header>
     <main class="dashboard">
@@ -17,7 +21,7 @@ import { onMounted, computed } from 'vue'
 import TemperatureGauge from './components/TemperatureGauge.vue'
 import PositionBar from './components/PositionBar.vue'
 import TrafficLight from './components/TrafficLight.vue'
-import { connectionStatus, connectOpcua } from './services/opcuaClient'
+import { connectionStatus, connectOpcua, endpointUrl } from './services/opcuaClient'
 
 const statusClass = computed(() => {
   if (connectionStatus.value === 'Connected') return 'connected'
@@ -71,6 +75,27 @@ h1 {
 .status.connected { background: #2ecc71; }
 .status.disconnected { background: #e74c3c; }
 .status.error { background: #e67e22; }
+.controls {
+  display: flex;
+  gap: 10px;
+}
+.controls input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+.controls button {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.controls button:hover {
+  background: #2980b9;
+}
 .dashboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

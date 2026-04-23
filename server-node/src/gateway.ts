@@ -2,15 +2,20 @@ import WebSocket from "ws";
 import net from "net";
 
 export function startGateway(opcuaPort: number, wsPort: number) {
-  const wss = new WebSocket.Server({ port: wsPort });
+  const wss = new WebSocket.Server({ port: wsPort, host: '0.0.0.0' });
 
   wss.on("connection", (ws) => {
     console.log("[Gateway] WS client connected");
 
     const tcpSocket = new net.Socket();
-    tcpSocket.connect(opcuaPort, "127.0.0.1");
+    
+    tcpSocket.on("error", (err) => {
+      console.error("[Gateway] TCP error:", err.message);
+      ws.send(JSON.stringify({ error: "TCP Connection to OPC UA failed" }));
+      ws.close();
+    });
 
-    tcpSocket.on("connect", () => {
+    tcpSocket.connect(opcuaPort, "127.0.0.1", () => {
       console.log("[Gateway] TCP connected to OPC UA server");
     });
 
