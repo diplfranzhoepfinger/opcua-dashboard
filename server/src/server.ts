@@ -1,4 +1,4 @@
-import { OPCUAServer, Variant, DataType, StatusCodes } from "node-opcua";
+import { OPCUAServer, Variant, DataType } from "node-opcua";
 import type { UAVariable } from "node-opcua";
 
 export async function createOpcuaServer() {
@@ -22,29 +22,14 @@ export async function createOpcuaServer() {
   const namespace = addressSpace.getOwnNamespace();
   const demoFolder = namespace.addFolder("ObjectsFolder", { browseName: "Demo" });
 
-  // Internal state
-  const state = {
-    temperature: 50.0,
-    position: 0.0,
-    trafficLight: 0,
-  };
-
   const tempVar = namespace.addVariable({
     organizedBy: demoFolder,
     browseName: "Temperature",
     nodeId: "s=Temperature",
     dataType: "Double",
-    value: {
-      get: () => new Variant({ dataType: DataType.Double, value: state.temperature }),
-      set: (variant) => {
-        if (variant.dataType === DataType.Double) {
-          state.temperature = variant.value as number;
-          return StatusCodes.Good;
-        }
-        return StatusCodes.BadTypeMismatch;
-      },
-    },
-    accessLevel: "CurrentRead | CurrentWrite",
+    minimumSamplingInterval: 10,
+    value: new Variant({ dataType: DataType.Double, value: 50.0 }),
+    accessLevel: "CurrentRead",
   }) as UAVariable;
 
   const posVar = namespace.addVariable({
@@ -52,17 +37,9 @@ export async function createOpcuaServer() {
     browseName: "Position",
     nodeId: "s=Position",
     dataType: "Double",
-    value: {
-      get: () => new Variant({ dataType: DataType.Double, value: state.position }),
-      set: (variant) => {
-        if (variant.dataType === DataType.Double) {
-          state.position = variant.value as number;
-          return StatusCodes.Good;
-        }
-        return StatusCodes.BadTypeMismatch;
-      },
-    },
-    accessLevel: "CurrentRead | CurrentWrite",
+    minimumSamplingInterval: 10,
+    value: new Variant({ dataType: DataType.Double, value: 0.0 }),
+    accessLevel: "CurrentRead",
   }) as UAVariable;
 
   const lightVar = namespace.addVariable({
@@ -70,21 +47,13 @@ export async function createOpcuaServer() {
     browseName: "TrafficLight",
     nodeId: "s=TrafficLight",
     dataType: "Int32",
-    value: {
-      get: () => new Variant({ dataType: DataType.Int32, value: state.trafficLight }),
-      set: (variant) => {
-        if (variant.dataType === DataType.Int32) {
-          state.trafficLight = variant.value as number;
-          return StatusCodes.Good;
-        }
-        return StatusCodes.BadTypeMismatch;
-      },
-    },
-    accessLevel: "CurrentRead | CurrentWrite",
+    minimumSamplingInterval: 10,
+    value: new Variant({ dataType: DataType.Int32, value: 0 }),
+    accessLevel: "CurrentRead",
   }) as UAVariable;
 
   await server.start();
   console.log("OPC UA Server started at", server.endpoints[0].endpointDescriptions()[0].endpointUrl);
 
-  return { server, tempVar, posVar, lightVar, state };
+  return { server, tempVar, posVar, lightVar };
 }
