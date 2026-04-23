@@ -19,7 +19,7 @@ Ein browser-basiertes **OPC UA Dashboard**, das in Echtzeit Daten von einem OPC 
 - **Vue 3** (Composition API)
 - **Vite** – Ultra-schneller Dev-Server & Build-Tool
 - **TypeScript**
-- **[@wsopcua/wsopcua](https://github.com/demike/wsopcua)** – OPC UA Client für den Browser
+- **[demike/wsopcua](https://github.com/demike/wsopcua)** – OPC UA Client für den Browser
 
 ### Server
 - **Node.js** + TypeScript
