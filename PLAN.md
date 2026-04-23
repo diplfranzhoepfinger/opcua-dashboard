@@ -126,6 +126,16 @@ Startet den Vite Dev-Server und öffnet die App im Browser (normalerweise `http:
 
 ---
 
+## Git Commit Strategie
+
+Um eine saubere Entwicklungsgeschichte zu gewährleisten, werden automatisch Commits an folgenden Meilensteinen erstellt:
+
+1.  **Server-Setup & Implementation** – Nach Fertigstellung des OPC UA Servers, WebSocket-Gateways und Simulators.
+2.  **Client-Setup & Implementation** – Nach Fertigstellung des Vue 3 Dashboards mit allen Widgets und OPC UA Client-Logik.
+3.  **Integration & Finalisierung** – Nach erfolgreichem End-to-End Test und Bugfixes.
+
+---
+
 ## Ziele & Kriterien
 *   [ ] Client ist **Browser-Only** (kein Node.js/Electron auf Client-Seite).
 *   [ ] Daten werden **Echtzeit** über OPC UA Subscriptions übertragen.
