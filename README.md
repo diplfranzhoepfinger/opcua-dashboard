@@ -52,7 +52,7 @@ Der Server besteht aus drei Teilen:
 
 ```bash
 # Repository klonen
-git clone <repository-url>
+git clone https://github.com/diplfranzhoepfinger/opcua.git
 cd opcua-dashboard
 
 # Abhängigkeiten installieren (Server + Client)
