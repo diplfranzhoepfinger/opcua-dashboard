@@ -10,8 +10,10 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <math.h>
+#include <unistd.h>
 
 static volatile UA_Boolean running = true;
+
 static void stopHandler(int sig) {
     (void)sig;
     running = false;
@@ -26,53 +28,6 @@ static UA_NodeId temperatureNodeId;
 static UA_NodeId positionNodeId;
 static UA_NodeId trafficLightNodeId;
 
-static void
-simulationCallback(UA_Server *server, void *data) {
-    (void)data;
-    static UA_UInt64 simTime = 0;
-    static int lightTimer = 0;
-
-    simTime += 100; /* 100 ms */
-
-    /* Temperature: Sine wave 20-80C, period 10s */
-    temperature = 50.0 + 30.0 * sin((simTime / 10000.0) * 2.0 * M_PI);
-
-    /* Position: Sawtooth 0-1000mm, period 5s */
-    position = ((simTime % 5000) / 5000.0) * 1000.0;
-
-    /* Traffic light: Austrian cycle (in 100ms ticks) */
-    lightTimer++;
-    const int GREEN_DURATION = 30;      /* 3s */
-    const int YELLOW_DURATION = 10;     /* 1s */
-    const int RED_DURATION = 30;        /* 3s */
-    const int RED_YELLOW_DURATION = 10; /* 1s */
-    int cycleLength = GREEN_DURATION + YELLOW_DURATION + RED_DURATION + RED_YELLOW_DURATION;
-    int cyclePos = lightTimer % cycleLength;
-
-    if (cyclePos < GREEN_DURATION) {
-        trafficLight = 0; /* Green */
-    } else if (cyclePos < GREEN_DURATION + YELLOW_DURATION) {
-        trafficLight = 1; /* Yellow */
-    } else if (cyclePos < GREEN_DURATION + YELLOW_DURATION + RED_DURATION) {
-        trafficLight = 2; /* Red */
-    } else {
-        trafficLight = 3; /* Red+Yellow */
-    }
-
-    /* Write values to server */
-    UA_Variant value;
-    UA_Variant_init(&value);
-
-    UA_Variant_setScalar(&value, &temperature, &UA_TYPES[UA_TYPES_DOUBLE]);
-    UA_Server_writeValue(server, temperatureNodeId, value);
-
-    UA_Variant_setScalar(&value, &position, &UA_TYPES[UA_TYPES_DOUBLE]);
-    UA_Server_writeValue(server, positionNodeId, value);
-
-    UA_Variant_setScalar(&value, &trafficLight, &UA_TYPES[UA_TYPES_INT32]);
-    UA_Server_writeValue(server, trafficLightNodeId, value);
-}
-
 int main(void) {
     signal(SIGINT, stopHandler);
     signal(SIGTERM, stopHandler);
@@ -83,22 +38,20 @@ int main(void) {
     }
 
     UA_ServerConfig *config = UA_Server_getConfig(server);
-    UA_ServerConfig_setBasics(config);
+    UA_ServerConfig_setDefault(config);
 
-    /* Add WebSocket network layer on port 4444 */
+    /* Replace default TCP network layer with WebSocket on port 4444 */
+    if(config->networkLayersSize > 0) {
+        UA_free(config->networkLayers);
+        config->networkLayers = NULL;
+        config->networkLayersSize = 0;
+    }
+
 #ifdef UA_ENABLE_WEBSOCKET_SERVER
     UA_ServerConfig_addNetworkLayerWS(config, 4444, 0, 0, NULL, NULL);
 #else
     UA_ServerConfig_addNetworkLayerTCP(config, 4444, 0, 0);
 #endif
-
-    /* Enable anonymous login BEFORE adding endpoints */
-    UA_AccessControl_default(config, true, NULL, NULL, 0, NULL);
-
-    UA_ServerConfig_addSecurityPolicyNone(config, NULL);
-    UA_ServerConfig_addEndpoint(config,
-                                UA_SECURITY_POLICY_NONE_URI,
-                                UA_MESSAGESECURITYMODE_NONE);
 
     /* Add Demo folder */
     UA_ObjectAttributes oAttr = UA_ObjectAttributes_default;
@@ -153,9 +106,6 @@ int main(void) {
                               UA_NODEID_NUMERIC(0, UA_NS0ID_BASEDATAVARIABLETYPE),
                               vAttr, NULL, NULL);
 
-    /* Start simulator callback every 100ms (0.1s) */
-    UA_Server_addRepeatedCallback(server, simulationCallback, NULL, 0.1, NULL);
-
     printf("\n========================================\n");
     printf("OPC UA Server (open62541) ready!\n");
 #ifdef UA_ENABLE_WEBSOCKET_SERVER
@@ -165,8 +115,61 @@ int main(void) {
 #endif
     printf("========================================\n\n");
 
-    UA_StatusCode retval = UA_Server_run(server, &running);
-
+    /* Manual server loop with inline simulator */
+    UA_Server_run_startup(server);
+    
+    UA_UInt64 simTime = 0;
+    int lightTimer = 0;
+    
+    while(running) {
+        /* Run one server iteration (non-blocking) */
+        UA_Server_run_iterate(server, 0);
+        
+        /* Simulator: update every 100ms */
+        simTime += 100;
+        
+        /* Temperature: Sine wave 20-80C, period 10s */
+        temperature = 50.0 + 30.0 * sin((simTime / 10000.0) * 2.0 * M_PI);
+        
+        /* Position: Sawtooth 0-1000mm, period 5s */
+        position = ((simTime % 5000) / 5000.0) * 1000.0;
+        
+        /* Traffic light: Austrian cycle (in 100ms ticks) */
+        lightTimer++;
+        const int GREEN_DURATION = 30;
+        const int YELLOW_DURATION = 10;
+        const int RED_DURATION = 30;
+        const int RED_YELLOW_DURATION = 10;
+        int cycleLength = GREEN_DURATION + YELLOW_DURATION + RED_DURATION + RED_YELLOW_DURATION;
+        int cyclePos = lightTimer % cycleLength;
+        
+        if (cyclePos < GREEN_DURATION) {
+            trafficLight = 0;
+        } else if (cyclePos < GREEN_DURATION + YELLOW_DURATION) {
+            trafficLight = 1;
+        } else if (cyclePos < GREEN_DURATION + YELLOW_DURATION + RED_DURATION) {
+            trafficLight = 2;
+        } else {
+            trafficLight = 3;
+        }
+        
+        /* Write values to server */
+        UA_Variant value;
+        UA_Variant_init(&value);
+        
+        UA_Variant_setScalar(&value, &temperature, &UA_TYPES[UA_TYPES_DOUBLE]);
+        UA_Server_writeValue(server, temperatureNodeId, value);
+        
+        UA_Variant_setScalar(&value, &position, &UA_TYPES[UA_TYPES_DOUBLE]);
+        UA_Server_writeValue(server, positionNodeId, value);
+        
+        UA_Variant_setScalar(&value, &trafficLight, &UA_TYPES[UA_TYPES_INT32]);
+        UA_Server_writeValue(server, trafficLightNodeId, value);
+        
+        usleep(100000); /* 100ms */
+    }
+    
+    UA_Server_run_shutdown(server);
     UA_Server_delete(server);
-    return retval == UA_STATUSCODE_GOOD ? EXIT_SUCCESS : EXIT_FAILURE;
+    return EXIT_SUCCESS;
 }
