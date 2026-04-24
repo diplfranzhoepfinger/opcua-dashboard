@@ -1,0 +1,10 @@
+{
+  "name": "opcua-server-open62541",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "make -C . run",
+    "build": "make -C .",
+    "clean": "make -C . clean"
+  }
+}
