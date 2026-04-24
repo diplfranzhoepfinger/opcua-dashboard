@@ -1,4 +1,5 @@
 #include <open62541/plugin/log_stdout.h>
+#include <open62541/plugin/accesscontrol_default.h>
 #include <open62541/server.h>
 #include <open62541/server_config_default.h>
 
@@ -95,6 +96,9 @@ int main(void) {
     UA_ServerConfig_addEndpoint(config,
                                 UA_SECURITY_POLICY_NONE_URI,
                                 UA_MESSAGESECURITYMODE_NONE);
+
+    /* Enable anonymous login */
+    UA_AccessControl_default(config, true, NULL, NULL, 0, NULL);
 
     /* Add Demo folder */
     UA_ObjectAttributes oAttr = UA_ObjectAttributes_default;
