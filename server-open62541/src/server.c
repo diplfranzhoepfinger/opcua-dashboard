@@ -92,13 +92,13 @@ int main(void) {
     UA_ServerConfig_addNetworkLayerTCP(config, 4444, 0, 0);
 #endif
 
+    /* Enable anonymous login BEFORE adding endpoints */
+    UA_AccessControl_default(config, true, NULL, NULL, 0, NULL);
+
     UA_ServerConfig_addSecurityPolicyNone(config, NULL);
     UA_ServerConfig_addEndpoint(config,
                                 UA_SECURITY_POLICY_NONE_URI,
                                 UA_MESSAGESECURITYMODE_NONE);
-
-    /* Enable anonymous login */
-    UA_AccessControl_default(config, true, NULL, NULL, 0, NULL);
 
     /* Add Demo folder */
     UA_ObjectAttributes oAttr = UA_ObjectAttributes_default;
@@ -153,8 +153,8 @@ int main(void) {
                               UA_NODEID_NUMERIC(0, UA_NS0ID_BASEDATAVARIABLETYPE),
                               vAttr, NULL, NULL);
 
-    /* Start simulator callback every 100ms */
-    UA_Server_addRepeatedCallback(server, simulationCallback, NULL, 100.0, NULL);
+    /* Start simulator callback every 100ms (0.1s) */
+    UA_Server_addRepeatedCallback(server, simulationCallback, NULL, 0.1, NULL);
 
     printf("\n========================================\n");
     printf("OPC UA Server (open62541) ready!\n");
