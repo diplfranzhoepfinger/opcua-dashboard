@@ -2,13 +2,11 @@
 #include <open62541/plugin/accesscontrol_default.h>
 #include <open62541/server.h>
 #include <open62541/server_config_default.h>
-
-#ifdef UA_ENABLE_WEBSOCKET_SERVER
-#include <open62541/network_ws.h>
-#endif
+#include <open62541/plugin/eventloop.h>
 
 #include <signal.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 #include <unistd.h>
 
@@ -40,18 +38,19 @@ int main(void) {
     UA_ServerConfig *config = UA_Server_getConfig(server);
     UA_ServerConfig_setDefault(config);
 
-    /* Replace default TCP network layer with WebSocket on port 4444 */
-    if(config->networkLayersSize > 0) {
-        UA_free(config->networkLayers);
-        config->networkLayers = NULL;
-        config->networkLayersSize = 0;
+    /* Register WebSocket ConnectionManager with the EventLoop */
+    UA_ConnectionManager *wsCM = UA_ConnectionManager_new_WS(UA_STRING("ws connection manager"));
+    if(!wsCM) {
+        UA_Server_delete(server);
+        return EXIT_FAILURE;
     }
+    config->eventLoop->registerEventSource(config->eventLoop, &wsCM->eventSource);
 
-#ifdef UA_ENABLE_WEBSOCKET_SERVER
-    UA_ServerConfig_addNetworkLayerWS(config, 4444, 0, 0, NULL, NULL);
-#else
-    UA_ServerConfig_addNetworkLayerTCP(config, 4444, 0, 0);
-#endif
+    /* Set server URL to WebSocket on port 4444 */
+    UA_Array_delete(config->serverUrls, config->serverUrlsSize, &UA_TYPES[UA_TYPES_STRING]);
+    config->serverUrlsSize = 1;
+    config->serverUrls = (UA_String*)UA_Array_new(1, &UA_TYPES[UA_TYPES_STRING]);
+    config->serverUrls[0] = UA_STRING_ALLOC("opc.ws://:4444");
 
     /* Add Demo folder */
     UA_ObjectAttributes oAttr = UA_ObjectAttributes_default;
@@ -107,12 +106,8 @@ int main(void) {
                               vAttr, NULL, NULL);
 
     printf("\n========================================\n");
-    printf("OPC UA Server (open62541) ready!\n");
-#ifdef UA_ENABLE_WEBSOCKET_SERVER
+    printf("OPC UA Server (open62541 v1.5) ready!\n");
     printf("  WebSocket: ws://localhost:4444\n");
-#else
-    printf("  TCP: opc.tcp://localhost:4444\n");
-#endif
     printf("========================================\n\n");
 
     /* Manual server loop with inline simulator */
