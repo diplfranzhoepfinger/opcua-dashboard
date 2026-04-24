@@ -41,5 +41,6 @@ coverage/
 .cache/
 .parcel-cache/
 
-# 3rd party sources (cloned separately)
-3rd-party/open62541/
+# 3rd party build outputs
+3rd-party/open62541/build/
+3rd-party/open62541/.git/
