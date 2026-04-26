@@ -1,0 +1,4 @@
+[submodule "open62541"]
+	path = open62541
+	url = https://github.com/diplfranzhoepfinger/open62541.git
+	branch = feature/ws_serv
