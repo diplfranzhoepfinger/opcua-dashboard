@@ -11,5 +11,9 @@
     "dev:server:node": "npm run dev -w server-node",
     "dev:server:open62541": "npm run dev -w server-open62541",
     "dev:client": "npm run dev -w client"
+  },
+  "dependencies": {
+    "puppeteer": "^24.42.0",
+    "ws": "^8.20.0"
   }
 }

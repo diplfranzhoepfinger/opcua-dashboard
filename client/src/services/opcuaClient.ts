@@ -43,21 +43,27 @@ export async function connectOpcua() {
     const session = await client.createSessionP({})
 
     const subscription = new ClientSubscription(session, {
-      requestedPublishingInterval: 100,
+      requestedPublishingInterval: 50,
       requestedLifetimeCount: 100,
-      requestedMaxKeepAliveCount: 10,
+      requestedMaxKeepAliveCount: 1,
       maxNotificationsPerPublish: 100,
       publishingEnabled: true,
       priority: 10,
     })
 
-    subscription.on('started', () => {
-      console.log('[OPC UA] Subscription started')
+    subscription.on('started', (id: number) => {
+      console.log('[OPC UA] Subscription started, id=' + id)
+      console.log('[OPC UA] revisedPublishingInterval=' + (subscription as any)._publishingInterval)
+      console.log('[OPC UA] revisedLifetimeCount=' + (subscription as any).lifetimeCount)
+      console.log('[OPC UA] revisedMaxKeepAliveCount=' + (subscription as any).maxKeepAliveCount)
     })
 
     subscription.on('terminated', () => {
       console.log('[OPC UA] Subscription terminated')
     })
+
+    let changeCount = 0
+    let lastLog = Date.now()
 
     const itemsToMonitor = [
       { nodeId: coerceNodeId('ns=1;s=Temperature'), attributeId: AttributeIds.Value },
@@ -68,7 +74,7 @@ export async function connectOpcua() {
     const monitoredItemGroup = await subscription.monitorItemsP(
       itemsToMonitor,
       {
-        samplingInterval: 100,
+        samplingInterval: 50,
         discardOldest: true,
         queueSize: 3,
       },
@@ -80,6 +86,13 @@ export async function connectOpcua() {
       if (index === 0) temperature.value = value ?? 0
       if (index === 1) position.value = value ?? 0
       if (index === 2) trafficLight.value = value ?? 0
+      changeCount++
+      const now = Date.now()
+      if (now - lastLog >= 1000) {
+        console.log(`[OPC UA] ${changeCount} changes in last ${now - lastLog}ms`)
+        changeCount = 0
+        lastLog = now
+      }
     })
 
     window.addEventListener('beforeunload', () => {

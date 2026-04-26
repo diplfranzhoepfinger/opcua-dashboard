@@ -1,4 +1,4 @@
-OPEN62541_DIR = ../3rd-party/open62541
+OPEN62541_DIR = ../open62541
 BUILD_DIR = $(OPEN62541_DIR)/build
 
 CC = gcc
