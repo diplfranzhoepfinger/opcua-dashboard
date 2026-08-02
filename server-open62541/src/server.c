@@ -92,6 +92,9 @@ int main(void) {
     UA_ServerConfig *config = UA_Server_getConfig(server);
     UA_ServerConfig_setDefault(config);
 
+    /* Enable WebSocket transport (opc.ws:// is plain, no TLS certs needed) */
+    config->webSocketEnabled = true;
+
     /* Set server URL to WebSocket on port 4444 */
     UA_Array_delete(config->serverUrls, config->serverUrlsSize, &UA_TYPES[UA_TYPES_STRING]);
     config->serverUrlsSize = 1;

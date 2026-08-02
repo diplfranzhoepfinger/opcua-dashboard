@@ -15,6 +15,7 @@ CFLAGS = -Wall -Wextra -O2 -std=c99 \
 
 LDFLAGS = $(BUILD_DIR)/bin/libopen62541.a \
           $(shell pkg-config --libs libwebsockets) \
+          -lssl -lcrypto \
           -lpthread -lm
 
 TARGET = bin/opcua-server
