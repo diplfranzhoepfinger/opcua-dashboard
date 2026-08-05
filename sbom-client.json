@@ -1,0 +1,3174 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "serialNumber": "urn:uuid:2d5a59fd-d268-42d5-a641-656a8b1bf86c",
+  "metadata": {
+    "timestamp": "2026-08-02T14:06:15.728Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "npm",
+          "version": "9.2.0"
+        },
+        {
+          "type": "application",
+          "name": "cyclonedx-npm",
+          "group": "@cyclonedx",
+          "version": "6.0.0",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-node-npm.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "10.1.0",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "opcua-dashboard",
+      "version": "1.0.0",
+      "bom-ref": "opcua-dashboard@1.0.0",
+      "purl": "pkg:npm/opcua-dashboard@1.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": ""
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "opcua-client",
+      "version": "1.0.0",
+      "bom-ref": "opcua-dashboard@1.0.0|opcua-client@1.0.0",
+      "purl": "pkg:npm/opcua-client@1.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/opcua-client"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "plugin-vue",
+      "group": "@vitejs",
+      "version": "5.2.4",
+      "bom-ref": "opcua-dashboard@1.0.0|@vitejs/plugin-vue@5.2.4",
+      "author": "Evan You",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vitejs/plugin-vue@5.2.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vitejs/vite-plugin-vue.git#packages/plugin-vue",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vitejs/vite-plugin-vue/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-5.2.4.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vitejs/plugin-vue"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "wsopcua",
+      "group": "@wsopcua",
+      "version": "0.12.1",
+      "bom-ref": "opcua-dashboard@1.0.0|@wsopcua/wsopcua@0.12.1",
+      "author": "Michael Derfler",
+      "licenses": [
+        {
+          "license": {
+            "name": "SEE LICENSE IN LICENSE.md",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40wsopcua/wsopcua@0.12.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/demike/wsopcua.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/demike/wsopcua#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/demike/wsopcua/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@wsopcua/wsopcua/-/wsopcua-0.12.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@wsopcua/wsopcua"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "typescript",
+      "version": "5.9.3",
+      "bom-ref": "opcua-dashboard@1.0.0|typescript@5.9.3",
+      "author": "Microsoft Corp.",
+      "description": "TypeScript is a language for application scale JavaScript development",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/typescript@5.9.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/TypeScript.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://www.typescriptlang.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/typescript"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vite-plugin-singlefile",
+      "version": "2.3.3",
+      "bom-ref": "opcua-dashboard@1.0.0|vite-plugin-singlefile@2.3.3",
+      "author": "richard@tallent.us",
+      "description": "Vite plugin for inlining all JavaScript and CSS resources",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vite-plugin-singlefile@2.3.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/richardtallent/vite-plugin-singlefile.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/richardtallent/vite-plugin-singlefile/tree/main/#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/richardtallent/vite-plugin-singlefile/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/vite-plugin-singlefile/-/vite-plugin-singlefile-2.3.3.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vite-plugin-singlefile"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vite",
+      "version": "5.4.21",
+      "bom-ref": "opcua-dashboard@1.0.0|vite@5.4.21",
+      "author": "Evan You",
+      "description": "Native-ESM powered web dev build tool",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vite@5.4.21",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vitejs/vite.git#packages/vite",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://vite.dev",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vitejs/vite/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/vite/-/vite-5.4.21.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vite"
+        }
+      ],
+      "components": [
+        {
+          "type": "library",
+          "name": "esbuild",
+          "version": "0.21.5",
+          "bom-ref": "opcua-dashboard@1.0.0|vite@5.4.21|esbuild@0.21.5",
+          "description": "An extremely fast JavaScript and CSS bundler and minifier.",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/esbuild@0.21.5",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/evanw/esbuild.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/evanw/esbuild#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/evanw/esbuild/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.21.5.tgz",
+              "type": "distribution",
+              "comment": "as detected from npm-ls property \"resolved\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/vite/node_modules/esbuild"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "linux-x64",
+          "group": "@esbuild",
+          "version": "0.21.5",
+          "bom-ref": "opcua-dashboard@1.0.0|vite@5.4.21|@esbuild/linux-x64@0.21.5",
+          "description": "The Linux 64-bit binary for esbuild, a JavaScript bundler.",
+          "licenses": [
+            {
+              "license": {
+                "id": "MIT",
+                "acknowledgement": "declared"
+              }
+            }
+          ],
+          "purl": "pkg:npm/%40esbuild/linux-x64@0.21.5",
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/evanw/esbuild.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/evanw/esbuild#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/evanw/esbuild/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            },
+            {
+              "url": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.21.5.tgz",
+              "type": "distribution",
+              "comment": "as detected from npm-ls property \"resolved\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:path",
+              "value": "node_modules/vite/node_modules/@esbuild/linux-x64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vue-tsc",
+      "version": "1.8.27",
+      "bom-ref": "opcua-dashboard@1.0.0|vue-tsc@1.8.27",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vue-tsc@1.8.27",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/language-tools.git#packages/tsc",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/language-tools#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/language-tools/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/vue-tsc/-/vue-tsc-1.8.27.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vue-tsc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|vue@3.5.33",
+      "author": "Evan You",
+      "description": "The progressive JavaScript framework for building modern web UI.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vue@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://vuejs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/vue/-/vue-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vue"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "async",
+      "version": "3.2.6",
+      "bom-ref": "opcua-dashboard@1.0.0|async@3.2.6",
+      "author": "Caolan McMahon",
+      "description": "Higher-order functions and common patterns for asynchronous code",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/async@3.2.6",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/caolan/async.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://caolan.github.io/async/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/caolan/async/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/async/-/async-3.2.6.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/async"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "loglevel",
+      "version": "1.9.2",
+      "bom-ref": "opcua-dashboard@1.0.0|loglevel@1.9.2",
+      "author": "Tim Perry",
+      "description": "Minimal lightweight logging for JavaScript, adding reliable log level methods to any available console.log methods",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/loglevel@1.9.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/pimterry/loglevel.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/pimterry/loglevel",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/pimterry/loglevel/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/loglevel/-/loglevel-1.9.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/loglevel"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "setimmediate",
+      "version": "1.0.5",
+      "bom-ref": "opcua-dashboard@1.0.0|setimmediate@1.0.5",
+      "author": "YuzuJS",
+      "description": "A shim for the setImmediate efficient script yielding API",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/setimmediate@1.0.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/YuzuJS/setImmediate.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/YuzuJS/setImmediate#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/YuzuJS/setImmediate/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.5.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/setimmediate"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "micromatch",
+      "version": "4.0.8",
+      "bom-ref": "opcua-dashboard@1.0.0|micromatch@4.0.8",
+      "author": "Jon Schlinkert",
+      "description": "Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/micromatch@4.0.8",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/micromatch/micromatch.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/micromatch/micromatch",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/micromatch/micromatch/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/micromatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rollup",
+      "version": "4.60.2",
+      "bom-ref": "opcua-dashboard@1.0.0|rollup@4.60.2",
+      "author": "Rich Harris",
+      "description": "Next-generation ES module bundler",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/rollup@4.60.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/rollup/rollup.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://rollupjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/rollup/rollup/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/rollup/-/rollup-4.60.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/rollup"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "node",
+      "group": "@types",
+      "version": "20.19.39",
+      "bom-ref": "opcua-dashboard@1.0.0|@types/node@20.19.39",
+      "description": "TypeScript definitions for node",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/node@20.19.39",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/node",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@types/node/-/node-20.19.39.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/node"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "postcss",
+      "version": "8.5.10",
+      "bom-ref": "opcua-dashboard@1.0.0|postcss@8.5.10",
+      "author": "Andrey Sitnik",
+      "description": "Tool for transforming styles with JS plugins",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/postcss@8.5.10",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/postcss/postcss.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://postcss.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/postcss/postcss/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/postcss/-/postcss-8.5.10.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/postcss"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "typescript",
+      "group": "@volar",
+      "version": "1.11.1",
+      "bom-ref": "opcua-dashboard@1.0.0|@volar/typescript@1.11.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40volar/typescript@1.11.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/volarjs/volar.js.git#packages/typescript",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/volarjs/volar.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/volarjs/volar.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@volar/typescript/-/typescript-1.11.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@volar/typescript"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "language-core",
+      "group": "@vue",
+      "version": "1.8.27",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/language-core@1.8.27",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/language-core@1.8.27",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/language-tools.git#packages/language-core",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/language-tools#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/language-tools/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/language-core/-/language-core-1.8.27.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/language-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "semver",
+      "version": "7.7.4",
+      "bom-ref": "opcua-dashboard@1.0.0|semver@7.7.4",
+      "author": "GitHub Inc.",
+      "description": "The semantic version parser used by npm.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/semver@7.7.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/npm/node-semver.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/semver/-/semver-7.7.4.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/semver"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-dom",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/compiler-dom@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/compiler-dom",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-dom@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/compiler-dom",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/compiler-dom#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-dom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-sfc",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/compiler-sfc@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/compiler-sfc",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-sfc@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/compiler-sfc",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/compiler-sfc#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-sfc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "runtime-dom",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/runtime-dom@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/runtime-dom",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/runtime-dom@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/runtime-dom",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/runtime-dom#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/runtime-dom/-/runtime-dom-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/runtime-dom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "server-renderer",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/server-renderer@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/server-renderer",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/server-renderer@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/server-renderer",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/server-renderer#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/server-renderer/-/server-renderer-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/server-renderer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "shared",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+      "author": "Evan You",
+      "description": "internal utils shared across @vue packages",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/shared@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/shared",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/shared#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/shared/-/shared-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/shared"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "braces",
+      "version": "3.0.3",
+      "bom-ref": "opcua-dashboard@1.0.0|braces@3.0.3",
+      "author": "Jon Schlinkert",
+      "description": "Bash-like brace expansion, implemented in JavaScript. Safer than other brace expansion libs, with complete support for the Bash 4.3 braces specification, without sacrificing speed.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/braces@3.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/micromatch/braces.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/micromatch/braces",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/micromatch/braces/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/braces/-/braces-3.0.3.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/braces"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "picomatch",
+      "version": "2.3.2",
+      "bom-ref": "opcua-dashboard@1.0.0|picomatch@2.3.2",
+      "author": "Jon Schlinkert",
+      "description": "Blazing fast and accurate glob matcher written in JavaScript, with no dependencies and full support for standard and extended Bash glob features, including braces, extglobs, POSIX brackets, and regular expressions.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picomatch@2.3.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/micromatch/picomatch.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/micromatch/picomatch",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/micromatch/picomatch/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/picomatch/-/picomatch-2.3.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/picomatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rollup-linux-x64-gnu",
+      "group": "@rollup",
+      "version": "4.60.2",
+      "bom-ref": "opcua-dashboard@1.0.0|@rollup/rollup-linux-x64-gnu@4.60.2",
+      "author": "Lukas Taegert-Atkinson",
+      "description": "Native bindings for Rollup",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40rollup/rollup-linux-x64-gnu@4.60.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/rollup/rollup.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://rollupjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/rollup/rollup/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-gnu/-/rollup-linux-x64-gnu-4.60.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@rollup/rollup-linux-x64-gnu"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "rollup-linux-x64-musl",
+      "group": "@rollup",
+      "version": "4.60.2",
+      "bom-ref": "opcua-dashboard@1.0.0|@rollup/rollup-linux-x64-musl@4.60.2",
+      "author": "Lukas Taegert-Atkinson",
+      "description": "Native bindings for Rollup",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40rollup/rollup-linux-x64-musl@4.60.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/rollup/rollup.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://rollupjs.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/rollup/rollup/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@rollup/rollup-linux-x64-musl/-/rollup-linux-x64-musl-4.60.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@rollup/rollup-linux-x64-musl"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "estree",
+      "group": "@types",
+      "version": "1.0.8",
+      "bom-ref": "opcua-dashboard@1.0.0|@types/estree@1.0.8",
+      "description": "TypeScript definitions for estree",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/estree@1.0.8",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/estree",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/estree",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@types/estree/-/estree-1.0.8.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/estree"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "undici-types",
+      "version": "6.21.0",
+      "bom-ref": "opcua-dashboard@1.0.0|undici-types@6.21.0",
+      "description": "A stand-alone types package for Undici",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/undici-types@6.21.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nodejs/undici.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://undici.nodejs.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/undici/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/undici-types/-/undici-types-6.21.0.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/undici-types"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "nanoid",
+      "version": "3.3.11",
+      "bom-ref": "opcua-dashboard@1.0.0|nanoid@3.3.11",
+      "author": "Andrey Sitnik",
+      "description": "A tiny (116 bytes), secure URL-friendly unique string ID generator",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/nanoid@3.3.11",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/ai/nanoid.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/ai/nanoid#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/ai/nanoid/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/nanoid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "bom-ref": "opcua-dashboard@1.0.0|picocolors@1.1.1",
+      "author": "Alexey Raspopov",
+      "description": "The tiniest and the fastest library for terminal output formatting with ANSI colors",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/picocolors@1.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/alexeyraspopov/picocolors.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/alexeyraspopov/picocolors#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/alexeyraspopov/picocolors/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/picocolors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "bom-ref": "opcua-dashboard@1.0.0|source-map-js@1.2.1",
+      "author": "Valentin 7rulnik Semirulnik",
+      "description": "Generates and consumes source maps",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/source-map-js@1.2.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/7rulnik/source-map-js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/7rulnik/source-map-js",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/7rulnik/source-map-js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/source-map-js"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "language-core",
+      "group": "@volar",
+      "version": "1.11.1",
+      "bom-ref": "opcua-dashboard@1.0.0|@volar/language-core@1.11.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40volar/language-core@1.11.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/volarjs/volar.js.git#packages/language-core",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/volarjs/volar.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/volarjs/volar.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@volar/language-core/-/language-core-1.11.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@volar/language-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "path-browserify",
+      "version": "1.0.1",
+      "bom-ref": "opcua-dashboard@1.0.0|path-browserify@1.0.1",
+      "author": "James Halliday",
+      "description": "the path module from node core for browsers",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/path-browserify@1.0.1",
+      "externalReferences": [
+        {
+          "url": "git://github.com/browserify/path-browserify.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/browserify/path-browserify",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/browserify/path-browserify/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/path-browserify/-/path-browserify-1.0.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/path-browserify"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map",
+      "group": "@volar",
+      "version": "1.11.1",
+      "bom-ref": "opcua-dashboard@1.0.0|@volar/source-map@1.11.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40volar/source-map@1.11.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/volarjs/volar.js.git#packages/source-map",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/volarjs/volar.js#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/volarjs/volar.js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@volar/source-map/-/source-map-1.11.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@volar/source-map"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "computeds",
+      "version": "0.0.1",
+      "bom-ref": "opcua-dashboard@1.0.0|computeds@0.0.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/computeds@0.0.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/johnsoncodehk/computeds.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/johnsoncodehk/computeds#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/johnsoncodehk/computeds/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/computeds/-/computeds-0.0.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/computeds"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "minimatch",
+      "version": "9.0.9",
+      "bom-ref": "opcua-dashboard@1.0.0|minimatch@9.0.9",
+      "author": "Isaac Z. Schlueter",
+      "description": "a glob matcher in javascript",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/minimatch@9.0.9",
+      "externalReferences": [
+        {
+          "url": "git://github.com/isaacs/minimatch.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/isaacs/minimatch#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/isaacs/minimatch/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/minimatch/-/minimatch-9.0.9.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/minimatch"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "muggle-string",
+      "version": "0.3.1",
+      "bom-ref": "opcua-dashboard@1.0.0|muggle-string@0.3.1",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/muggle-string@0.3.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/johnsoncodehk/muggle-string.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/johnsoncodehk/muggle-string#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/johnsoncodehk/muggle-string/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/muggle-string/-/muggle-string-0.3.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/muggle-string"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "vue-template-compiler",
+      "version": "2.7.16",
+      "bom-ref": "opcua-dashboard@1.0.0|vue-template-compiler@2.7.16",
+      "author": "Evan You",
+      "description": "template compiler for Vue 2.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/vue-template-compiler@2.7.16",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/vue.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/vue/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.7.16.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/vue-template-compiler"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-core",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/compiler-core@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/compiler-core",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-core@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/compiler-core",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/compiler-core#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/compiler-core/-/compiler-core-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "parser",
+      "group": "@babel",
+      "version": "7.29.2",
+      "bom-ref": "opcua-dashboard@1.0.0|@babel/parser@7.29.2",
+      "author": "The Babel Team",
+      "description": "A JavaScript parser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/parser@7.29.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/babel/babel.git#packages/babel-parser",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://babel.dev/docs/en/next/babel-parser",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A+parser+%28babylon%29%22+is%3Aopen",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "compiler-ssr",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/compiler-ssr@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/compiler-ssr",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/compiler-ssr@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/compiler-ssr",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/compiler-ssr#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/compiler-ssr/-/compiler-ssr-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/compiler-ssr"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "estree-walker",
+      "version": "2.0.2",
+      "bom-ref": "opcua-dashboard@1.0.0|estree-walker@2.0.2",
+      "author": "Rich Harris",
+      "description": "Traverse an ESTree-compliant AST",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/estree-walker@2.0.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/Rich-Harris/estree-walker.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/Rich-Harris/estree-walker#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/Rich-Harris/estree-walker/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/estree-walker"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "magic-string",
+      "version": "0.30.21",
+      "bom-ref": "opcua-dashboard@1.0.0|magic-string@0.30.21",
+      "author": "Rich Harris",
+      "description": "Modify strings, generate sourcemaps",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/magic-string@0.30.21",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/Rich-Harris/magic-string.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/Rich-Harris/magic-string#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/Rich-Harris/magic-string/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/magic-string"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "reactivity",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/reactivity@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/reactivity",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/reactivity@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/reactivity",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/reactivity#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/reactivity/-/reactivity-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/reactivity"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "runtime-core",
+      "group": "@vue",
+      "version": "3.5.33",
+      "bom-ref": "opcua-dashboard@1.0.0|@vue/runtime-core@3.5.33",
+      "author": "Evan You",
+      "description": "@vue/runtime-core",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40vue/runtime-core@3.5.33",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/vuejs/core.git#packages/runtime-core",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/tree/main/packages/runtime-core#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vuejs/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@vue/runtime-core/-/runtime-core-3.5.33.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@vue/runtime-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "csstype",
+      "version": "3.2.3",
+      "bom-ref": "opcua-dashboard@1.0.0|csstype@3.2.3",
+      "author": "Fredrik Nicol",
+      "description": "Strict TypeScript and Flow types for style based on MDN data",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/csstype@3.2.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/frenic/csstype.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/frenic/csstype#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/frenic/csstype/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/csstype"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fill-range",
+      "version": "7.1.1",
+      "bom-ref": "opcua-dashboard@1.0.0|fill-range@7.1.1",
+      "author": "Jon Schlinkert",
+      "description": "Fill in a range of numbers or letters, optionally passing an increment or `step` to use, or create a regex-compatible range with `options.toRegex`",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fill-range@7.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jonschlinkert/fill-range.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/fill-range",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/fill-range/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/fill-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "brace-expansion",
+      "version": "2.1.0",
+      "bom-ref": "opcua-dashboard@1.0.0|brace-expansion@2.1.0",
+      "author": "Julian Gruber",
+      "description": "Brace expansion as known from sh/bash",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/brace-expansion@2.1.0",
+      "externalReferences": [
+        {
+          "url": "git://github.com/juliangruber/brace-expansion.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/juliangruber/brace-expansion",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/juliangruber/brace-expansion/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.1.0.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/brace-expansion"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "de-indent",
+      "version": "1.0.2",
+      "bom-ref": "opcua-dashboard@1.0.0|de-indent@1.0.2",
+      "author": "Evan You",
+      "description": "remove extra indent from a block of code",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/de-indent@1.0.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/yyx990803/de-indent.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/yyx990803/de-indent#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/yyx990803/de-indent/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/de-indent/-/de-indent-1.0.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/de-indent"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "he",
+      "version": "1.2.0",
+      "bom-ref": "opcua-dashboard@1.0.0|he@1.2.0",
+      "author": "Mathias Bynens",
+      "description": "A robust HTML entities encoder/decoder with full Unicode support.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/he@1.2.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/mathiasbynens/he.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://mths.be/he",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/mathiasbynens/he/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/he/-/he-1.2.0.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/he"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "entities",
+      "version": "7.0.1",
+      "bom-ref": "opcua-dashboard@1.0.0|entities@7.0.1",
+      "author": "Felix Boehm",
+      "description": "Encode & decode XML and HTML entities with ease & speed",
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-2-Clause",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/entities@7.0.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/fb55/entities.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/fb55/entities#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/fb55/entities/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/entities/-/entities-7.0.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/entities"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "types",
+      "group": "@babel",
+      "version": "7.29.0",
+      "bom-ref": "opcua-dashboard@1.0.0|@babel/types@7.29.0",
+      "author": "The Babel Team",
+      "description": "Babel Types is a Lodash-esque utility library for AST nodes",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/types@7.29.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/babel/babel.git#packages/babel-types",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://babel.dev/docs/en/next/babel-types",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20types%22+is%3Aopen",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@babel/types/-/types-7.29.0.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/types"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sourcemap-codec",
+      "group": "@jridgewell",
+      "version": "1.5.5",
+      "bom-ref": "opcua-dashboard@1.0.0|@jridgewell/sourcemap-codec@1.5.5",
+      "author": "Justin Ridgewell",
+      "description": "Encode/decode sourcemap mappings",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.5.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/sourcemap-codec",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jridgewell/sourcemaps/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@jridgewell/sourcemap-codec"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "to-regex-range",
+      "version": "5.0.1",
+      "bom-ref": "opcua-dashboard@1.0.0|to-regex-range@5.0.1",
+      "author": "Jon Schlinkert",
+      "description": "Pass two numbers, get a regex-compatible source string for matching ranges. Validated against more than 2.78 million test assertions.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/to-regex-range@5.0.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/micromatch/to-regex-range.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/micromatch/to-regex-range",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/micromatch/to-regex-range/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/to-regex-range"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "bom-ref": "opcua-dashboard@1.0.0|balanced-match@1.0.2",
+      "author": "Julian Gruber",
+      "description": "Match balanced character pairs, like \"{\" and \"}\"",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/balanced-match@1.0.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/juliangruber/balanced-match.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/juliangruber/balanced-match",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/juliangruber/balanced-match/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/balanced-match"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "helper-string-parser",
+      "group": "@babel",
+      "version": "7.27.1",
+      "bom-ref": "opcua-dashboard@1.0.0|@babel/helper-string-parser@7.27.1",
+      "author": "The Babel Team",
+      "description": "A utility package to parse strings",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/helper-string-parser@7.27.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/babel/babel.git#packages/babel-helper-string-parser",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://babel.dev/docs/en/next/babel-helper-string-parser",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/babel/babel/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.27.1.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/helper-string-parser"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "helper-validator-identifier",
+      "group": "@babel",
+      "version": "7.28.5",
+      "bom-ref": "opcua-dashboard@1.0.0|@babel/helper-validator-identifier@7.28.5",
+      "author": "The Babel Team",
+      "description": "Validate identifier/keywords name",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40babel/helper-validator-identifier@7.28.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/babel/babel.git#packages/babel-helper-validator-identifier",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/babel/babel#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/babel/babel/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.28.5.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@babel/helper-validator-identifier"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "is-number",
+      "version": "7.0.0",
+      "bom-ref": "opcua-dashboard@1.0.0|is-number@7.0.0",
+      "author": "Jon Schlinkert",
+      "description": "Returns true if a number or string value is a finite number. Useful for regex matches, parsing, user input, etc.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/is-number@7.0.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jonschlinkert/is-number.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/is-number",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jonschlinkert/is-number/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz",
+          "type": "distribution",
+          "comment": "as detected from npm-ls property \"resolved\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/is-number"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "opcua-dashboard@1.0.0",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|opcua-client@1.0.0"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|opcua-client@1.0.0",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vitejs/plugin-vue@5.2.4",
+        "opcua-dashboard@1.0.0|@wsopcua/wsopcua@0.12.1",
+        "opcua-dashboard@1.0.0|typescript@5.9.3",
+        "opcua-dashboard@1.0.0|vite-plugin-singlefile@2.3.3",
+        "opcua-dashboard@1.0.0|vite@5.4.21",
+        "opcua-dashboard@1.0.0|vue-tsc@1.8.27",
+        "opcua-dashboard@1.0.0|vue@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vitejs/plugin-vue@5.2.4",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|vite@5.4.21",
+        "opcua-dashboard@1.0.0|vue@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@wsopcua/wsopcua@0.12.1",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|async@3.2.6",
+        "opcua-dashboard@1.0.0|loglevel@1.9.2",
+        "opcua-dashboard@1.0.0|setimmediate@1.0.5"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|typescript@5.9.3"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vite-plugin-singlefile@2.3.3",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|micromatch@4.0.8",
+        "opcua-dashboard@1.0.0|rollup@4.60.2",
+        "opcua-dashboard@1.0.0|vite@5.4.21"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vite@5.4.21",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@types/node@20.19.39",
+        "opcua-dashboard@1.0.0|vite@5.4.21|esbuild@0.21.5",
+        "opcua-dashboard@1.0.0|postcss@8.5.10",
+        "opcua-dashboard@1.0.0|rollup@4.60.2"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vite@5.4.21|esbuild@0.21.5",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|vite@5.4.21|@esbuild/linux-x64@0.21.5"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vite@5.4.21|@esbuild/linux-x64@0.21.5"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vue-tsc@1.8.27",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@volar/typescript@1.11.1",
+        "opcua-dashboard@1.0.0|@vue/language-core@1.8.27",
+        "opcua-dashboard@1.0.0|semver@7.7.4",
+        "opcua-dashboard@1.0.0|typescript@5.9.3"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vue@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/compiler-dom@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/compiler-sfc@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/runtime-dom@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/server-renderer@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+        "opcua-dashboard@1.0.0|typescript@5.9.3"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|async@3.2.6"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|loglevel@1.9.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|setimmediate@1.0.5"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|micromatch@4.0.8",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|braces@3.0.3",
+        "opcua-dashboard@1.0.0|picomatch@2.3.2"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|rollup@4.60.2",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@rollup/rollup-linux-x64-gnu@4.60.2",
+        "opcua-dashboard@1.0.0|@rollup/rollup-linux-x64-musl@4.60.2",
+        "opcua-dashboard@1.0.0|@types/estree@1.0.8"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@types/node@20.19.39",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|undici-types@6.21.0"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|postcss@8.5.10",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|nanoid@3.3.11",
+        "opcua-dashboard@1.0.0|picocolors@1.1.1",
+        "opcua-dashboard@1.0.0|source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@volar/typescript@1.11.1",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@volar/language-core@1.11.1",
+        "opcua-dashboard@1.0.0|path-browserify@1.0.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/language-core@1.8.27",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@volar/language-core@1.11.1",
+        "opcua-dashboard@1.0.0|@volar/source-map@1.11.1",
+        "opcua-dashboard@1.0.0|@vue/compiler-dom@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+        "opcua-dashboard@1.0.0|computeds@0.0.1",
+        "opcua-dashboard@1.0.0|minimatch@9.0.9",
+        "opcua-dashboard@1.0.0|muggle-string@0.3.1",
+        "opcua-dashboard@1.0.0|path-browserify@1.0.1",
+        "opcua-dashboard@1.0.0|typescript@5.9.3",
+        "opcua-dashboard@1.0.0|vue-template-compiler@2.7.16"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|semver@7.7.4"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/compiler-dom@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/compiler-core@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/compiler-sfc@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@babel/parser@7.29.2",
+        "opcua-dashboard@1.0.0|@vue/compiler-core@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/compiler-dom@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/compiler-ssr@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+        "opcua-dashboard@1.0.0|estree-walker@2.0.2",
+        "opcua-dashboard@1.0.0|magic-string@0.30.21",
+        "opcua-dashboard@1.0.0|postcss@8.5.10",
+        "opcua-dashboard@1.0.0|source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/runtime-dom@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/reactivity@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/runtime-core@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+        "opcua-dashboard@1.0.0|csstype@3.2.3"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/server-renderer@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/compiler-ssr@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+        "opcua-dashboard@1.0.0|vue@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/shared@3.5.33"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|braces@3.0.3",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|fill-range@7.1.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|picomatch@2.3.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@rollup/rollup-linux-x64-gnu@4.60.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@rollup/rollup-linux-x64-musl@4.60.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@types/estree@1.0.8"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|undici-types@6.21.0"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|nanoid@3.3.11"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|picocolors@1.1.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|source-map-js@1.2.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@volar/language-core@1.11.1",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@volar/source-map@1.11.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|path-browserify@1.0.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@volar/source-map@1.11.1",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|muggle-string@0.3.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|computeds@0.0.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|minimatch@9.0.9",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|brace-expansion@2.1.0"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|muggle-string@0.3.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|vue-template-compiler@2.7.16",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|de-indent@1.0.2",
+        "opcua-dashboard@1.0.0|he@1.2.0"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/compiler-core@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@babel/parser@7.29.2",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33",
+        "opcua-dashboard@1.0.0|entities@7.0.1",
+        "opcua-dashboard@1.0.0|estree-walker@2.0.2",
+        "opcua-dashboard@1.0.0|source-map-js@1.2.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@babel/parser@7.29.2",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@babel/types@7.29.0"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/compiler-ssr@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/compiler-dom@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|estree-walker@2.0.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|magic-string@0.30.21",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@jridgewell/sourcemap-codec@1.5.5"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/reactivity@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@vue/runtime-core@3.5.33",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@vue/reactivity@3.5.33",
+        "opcua-dashboard@1.0.0|@vue/shared@3.5.33"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|csstype@3.2.3"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|fill-range@7.1.1",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|to-regex-range@5.0.1"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|brace-expansion@2.1.0",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|balanced-match@1.0.2"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|de-indent@1.0.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|he@1.2.0"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|entities@7.0.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@babel/types@7.29.0",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|@babel/helper-string-parser@7.27.1",
+        "opcua-dashboard@1.0.0|@babel/helper-validator-identifier@7.28.5"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@jridgewell/sourcemap-codec@1.5.5"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|to-regex-range@5.0.1",
+      "dependsOn": [
+        "opcua-dashboard@1.0.0|is-number@7.0.0"
+      ]
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|balanced-match@1.0.2"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@babel/helper-string-parser@7.27.1"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|@babel/helper-validator-identifier@7.28.5"
+    },
+    {
+      "ref": "opcua-dashboard@1.0.0|is-number@7.0.0"
+    }
+  ]
+}
