@@ -94,6 +94,7 @@ int main(void) {
 
     /* Enable WebSocket transport (opc.ws:// is plain, no TLS certs needed) */
     config->webSocketEnabled = true;
+    config->webSocketAllowUnencrypted = true;
 
     /* Set server URL to WebSocket on port 4444 */
     UA_Array_delete(config->serverUrls, config->serverUrlsSize, &UA_TYPES[UA_TYPES_STRING]);
