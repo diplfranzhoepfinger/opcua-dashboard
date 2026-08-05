@@ -1,6 +1,6 @@
 # OPC UA Dashboard
 
-Ein browser-basiertes **OPC UA Dashboard**, das in Echtzeit Daten von einem OPC UA Server über WebSocket abruft und grafisch visualisiert.
+Browser-basiertes **OPC UA Dashboard**, das in Echtzeit Daten von einem OPC UA Server über WebSocket abruft und grafisch visualisiert.
 
 ![Demo](Aufzeichnung%202026-04-23%20200420.gif)
 
@@ -10,162 +10,145 @@ Ein browser-basiertes **OPC UA Dashboard**, das in Echtzeit Daten von einem OPC 
 - **Temperatur-Gauge** – SVG-Halbkreis mit dynamischem Farbverlauf (20–80 °C)
 - **Positions-Anzeige** – Horizontaler Balkengraph mit 2 Nachkommastellen (0–1000 mm)
 - **Ampel-Visualisierung** – Österreichische Ampelschaltung (Grün → Gelb → Rot → Rot+Gelb → Grün)
-- **Echtzeit-Daten** – OPC UA Subscriptions über WebSocket (kein Polling!)
-- **Stand-Alone HTML** – Der Client kann als eine einzige HTML-Datei gebaut und ohne Webserver direkt in Chrome geöffnet werden.
-- **Konfigurierbarer Endpunkt** – Die WebSocket-URL kann direkt im UI eingegeben werden (praktisch bei wechselnden IPs).
+- **Echtzeit-Daten** – OPC UA Subscriptions über WebSocket (kein Polling, Server pusht bei Wertänderung)
+- **Stand-Alone HTML** – Der Client baut als eine einzige HTML-Datei, kein Webserver nötig
+- **Konfigurierbarer Endpunkt** – WebSocket-URL direkt im UI eingebbar (praktisch bei wechselnden IPs)
+
 
 ## Technologie-Stack
 
 ### Client
-- **Vue 3** (Composition API)
-- **Vite** mit **vite-plugin-singlefile** (für den Stand-Alone Build)
-- **TypeScript**
+- **Vue 3** (Composition API) + **TypeScript**
+- **Vite** + **vite-plugin-singlefile** (Single-File HTML Build)
 - **[demike/wsopcua](https://github.com/demike/wsopcua)** – OPC UA Client für den Browser
 
 ### Server (zwei alternative Implementierungen)
 
 **Option A – Node.js Server (`server-node/`)**
-- **Node.js** + TypeScript
-- **[node-opcua](https://github.com/node-opcua/node-opcua)** – OPC UA Server Engine
-- **ws** – WebSocket-Bibliothek für das Gateway (hört auf `0.0.0.0`)
-- **tsx** – TypeScript Execution
+- **node-opcua** – OPC UA Server Engine
+- **ws** – WebSocket-Gateway (transparente Byte-Pipe zum OPC UA Server)
 
 **Option B – C Server (`server-open62541/`)**
-- **open62541** v1.3+ – OPC UA Server Engine in C
-- **libwebsockets** – Native WebSocket-Unterstützung (kein separates Gateway!)
-- **Simulator** – Direkt im Server-Prozess integriert
+- **open62541** v1.5 – OPC UA Server Engine in C
+- **libwebsockets** 4.3+ – Native WebSocket-Unterstützung direkt im Server, kein Gateway nötig
+- Simulator direkt integriert
+
 
 ## Architektur
 
-### Option A – Node.js Server
+### Option A – Node.js
 
 ```
-┌────────────────────┐      ws://<IP>:4444       ┌─────────────────────────────────────┐
-│      Browser       │  ◄─────────────────────►  │  OPC UA Server  +  WS Gateway       │
-│ (index.html Datei) │   OPC UA Binary over WS   │  (node-opcua)     (ws)              │
-└────────────────────┘                           │                    + Simulator      │
-                                                 └─────────────────────────────────────┘
+┌────────────────┐    ws://<IP>:4444    ┌──────────────────────────────────┐
+│    Browser     │ ◄──────────────────► │  WS-Gateway   OPC UA Server      │
+│ (HTML Datei)   │  OPC UA Binary/WS    │  (ws)    +    (node-opcua)       │
+└────────────────┘                      │               + Simulator        │
+                                        └──────────────────────────────────┘
 ```
 
-Der Server besteht aus drei Teilen:
-1. **OPC UA Server** – Läuft intern auf TCP Port 26543
-2. **WebSocket Gateway** – Transparente Byte-Pipe von Port 4444 zum OPC UA Server
-3. **Simulator** – Ändert zyklisch Temperatur, Position und Ampelzustand
-
-### Option B – open62541 C Server
+### Option B – open62541
 
 ```
-┌────────────────────┐      ws://<IP>:4444       ┌─────────────────────────────────────┐
-│      Browser       │  ◄─────────────────────►  │  OPC UA Server mit nativem WS       │
-│ (index.html Datei) │   OPC UA Binary over WS   │  (open62541 + libwebsockets)        │
-└────────────────────┘                           │                    + Simulator      │
-                                                 └─────────────────────────────────────┘
+┌────────────────┐    ws://<IP>:4444    ┌──────────────────────────────────┐
+│    Browser     │ ◄──────────────────► │  OPC UA Server mit nativem WS    │
+│ (HTML Datei)   │  OPC UA Binary/WS    │  (open62541 + libwebsockets)     │
+└────────────────┘                      │  + Simulator                     │
+                                        └──────────────────────────────────┘
 ```
 
-Der open62541-Server nutzt den integrierten `UA_ServerNetworkLayerWS`, um direkt auf WebSocket-Verbindungen zu lauschen – kein separates Gateway nötig.
 
 ## Schnellstart
 
 ### Voraussetzungen
-- [Node.js](https://nodejs.org/) (v18+)
-- npm (im Lieferumfang von Node.js enthalten)
 
-### Installation
+**Für den Node.js Server (Option A):**
+- Node.js v18+
+
+**Für den C Server (Option B):**
+- `gcc`, `cmake`
+- `libwebsockets` ≥ 4.3 (`apt install libwebsockets-dev`)
+- `libssl-dev` (`apt install libssl-dev`)
+
+### open62541 bauen (Option B)
 
 ```bash
-# Repository klonen
-git clone https://github.com/diplfranzhoepfinger/opcua-dashboard.git
-cd opcua-dashboard
+# open62541 Submodul konfigurieren und bauen
+./cmake-configure.sh
+make open62541 -C open62541/build -j$(nproc)
 
-# Abhängigkeiten installieren (Server + Client)
+# Test-Server bauen
+make -C server-open62541
+
+# Server starten
+./run-server.sh
+```
+
+### Node.js Server (Option A)
+
+```bash
 npm install
-```
-
-### Entwicklung starten
-
-**Terminal 1 – Server starten (eine der beiden Optionen):**
-
-```bash
-# Option A – Node.js Server
 npm run dev:server:node
-
-# Option B – open62541 C Server (vorher bauen: cd server-open62541 && make)
-npm run dev:server:open62541
 ```
 
-**Terminal 2 – Client starten:**
-```bash
-npm run dev:client
-```
-Startet den Vite Dev-Server. Das Dashboard ist unter `http://localhost:5173` erreichbar.
-
-### Stand-Alone Build (Einzelne HTML Datei)
+### Client bauen
 
 ```bash
-# Client bauen (erzeugt eine einzige Datei)
+# Dashboard-Client (erzeugt client/dist/index.html)
 npm run build -w client
-
-# Die Datei liegt in client/dist/index.html
 ```
-Öffne `client/dist/index.html` direkt mit Chrome (Rechtsklick -> Öffnen mit...).
-Gib oben im Dashboard die IP-Adresse deines Servers ein (z.B. `ws://192.168.1.10:4444`) und klicke auf **Connect**.
+
+`client/dist/index.html` kann direkt in Chrome geöffnet werden (Rechtsklick → Öffnen mit…).
+Im UI die Server-IP eintragen (z.B. `ws://192.168.1.10:4444`) und **Verbinden** klicken.
+
 
 ## Simulierte Daten
 
-| Variable | Typ | Bereich | Simulationsverhalten |
+| Node-ID | Typ | Bereich | Simulation |
 |---|---|---|---|
-| `ns=1;s=Temperature` | Double | 20 – 80 °C | Sinuswelle |
-| `ns=1;s=Position` | Double | 0 – 1000 mm | Sägezahn (linear aufsteigend, dann Sprung auf 0) |
-| `ns=1;s=TrafficLight` | Int32 | 0 – 3 | Österreichische Schaltung: Grün → Gelb → Rot → Rot+Gelb → Grün |
+| `ns=1;s=Temperature` | Double | 20–80 °C | Sinuswelle, Periode 10 s |
+| `ns=1;s=Position` | Double | 0–1000 mm | Sägezahn, Periode 5 s |
+| `ns=1;s=TrafficLight` | Int32 | 0–3 | Österreichische Schaltung |
+
 
 ## Projektstruktur
 
 ```
 opcua-dashboard/
-├── server-node/            # OPC UA Server + WS-Gateway + Simulator (Node.js)
-│   ├── src/
-│   │   ├── server.ts       # node-opcua Server Setup
-│   │   ├── gateway.ts      # WebSocket → TCP Bridge
-│   │   ├── simulator.ts    # Daten-Loop
-│   │   └── index.ts        # Entry Point
-│   ├── package.json
-│   └── tsconfig.json
-├── server-open62541/       # OPC UA Server mit nativem WS (C/open62541)
-│   ├── src/
-│   │   └── server.c        # open62541 Server + Simulator
-│   ├── Makefile
-│   └── package.json
-├── client/                 # Vue 3 Dashboard (Browser-Only)
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── TemperatureGauge.vue
-│   │   │   ├── PositionBar.vue
-│   │   │   └── TrafficLight.vue
-│   │   ├── services/
-│   │   │   └── opcuaClient.ts   # wsopcua Verbindung & Subscriptions
-│   │   ├── App.vue
-│   │   └── main.ts
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.ts
-│   └── tsconfig.json
-├── package.json            # Root, npm workspaces
-└── README.md
+├── cmake-configure.sh          # open62541 CMake-Konfiguration (UA_ENABLE_LWS=ON usw.)
+├── run-server.sh               # Startet den open62541 Test-Server
+├── sbom-client.json            # CycloneDX 1.6 SBOM (Client)
+├── open62541/                  # open62541 Submodul (diplfranzhoepfinger/open62541, Branch: master)
+│   └── build/                  # CMake Build-Ausgabe (gitignored)
+├── server-node/                # OPC UA Server + WS-Gateway (Node.js)
+│   └── src/
+│       ├── server.ts
+│       ├── gateway.ts
+│       ├── simulator.ts
+│       └── index.ts
+├── server-open62541/           # OPC UA Server mit nativem WebSocket (C)
+│   ├── src/server.c
+│   └── Makefile
+└── client/                     # Vue 3 Dashboard (Browser)
+    ├── index.html
+    ├── vite.config.ts
+    ├── dist/index.html         # Build-Ausgabe (Single-File HTML)
+    └── src/
+        ├── App.vue
+        ├── main.ts
+        ├── components/
+        │   ├── TemperatureGauge.vue
+        │   ├── PositionBar.vue
+        │   └── TrafficLight.vue
+        └── services/
+            └── opcuaClient.ts
 ```
 
-## Git Commit Strategie
-
-Um eine saubere Entwicklungsgeschichte zu gewährleisten, werden automatisch Commits an folgenden Meilensteinen erstellt:
-
-1. **Server-Setup & Implementation** – Nach Fertigstellung des OPC UA Servers, WebSocket-Gateways und Simulators.
-2. **Client-Setup & Implementation** – Nach Fertigstellung des Vue 3 Dashboards mit allen Widgets und OPC UA Client-Logik.
-3. **Integration & Finalisierung** – Nach erfolgreichem End-to-End Test und Bugfixes.
 
 ## Lizenz
 
 Dieses Projekt verwendet ein **Dual-Licensing**:
 
-- **Human Contributions** (Planung, Architektur, Konfiguration, manuelle Edits) stehen unter der **MIT License**, Copyright (c) 2026 Franz Höpfinger.
-- **AI-Generated Code** (vollständig durch Kimi K2.6 generiert) ist **Public Domain (CC0 1.0 Universal)**.
+- **Human Contributions** stehen unter der **MIT License**, Copyright (c) 2026 Franz Höpfinger.
+- **AI-Generated Code** ist **Public Domain (CC0 1.0 Universal)**.
 
 Details siehe [LICENSE](LICENSE).
